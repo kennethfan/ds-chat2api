@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ds-chat2api</title>
+        <link rel="stylesheet" href="popup.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>ds-chat2api Data Collector</h1>
+
+            <div class="section">
+                <label for="portInput">WebSocket Server:</label>
+                <div class="input-row">
+                    <input
+                        type="text"
+                        id="portInput"
+                        value="ws://localhost:8765"
+                        placeholder="ws://localhost:8765"
+                    />
+                    <button id="connectBtn">Connect</button>
+                </div>
+            </div>
+
+            <div class="section status-section">
+                <div class="status-header">
+                    <span id="statusDot" class="status-dot disconnected"></span>
+                    <span id="statusText">Disconnected</span>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Active Tab:</span>
+                        <span id="activeTab" class="info-value">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Standby Tabs:</span>
+                        <span id="standbyTabs" class="info-value">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section log-section">
+                <div class="log-header">
+                    <span>Log</span>
+                    <button id="clearLogBtn">Clear</button>
+                </div>
+                <div id="logEntries" class="log-entries"></div>
+            </div>
+        </div>
+        <script src="popup.js"></script>
+    </body>
+</html>
