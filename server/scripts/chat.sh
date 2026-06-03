@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+# set -x
 
 message='世界杯'
 if [ $# -gt 0 ]; then
