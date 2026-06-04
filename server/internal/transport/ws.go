@@ -91,8 +91,8 @@ func (s *WsServer) startHeartbeat(conn *websocket.Conn) {
 			select {
 			case <-ticker.C:
 				s.mu.Lock()
-				defer s.mu.Unlock()
 				if s.extConn != conn {
+					s.mu.Unlock()
 					return // 连接已被替换，退出旧 heartbeat
 				}
 				s.mu.Unlock()
