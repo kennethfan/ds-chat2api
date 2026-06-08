@@ -32,6 +32,12 @@ func (s *HttpServer) Start(port string) {
 	r.POST("/api/command", func(c *gin.Context) {
 		handler.HandleCommand(c, s.sender)
 	})
+	r.POST("/v1/chat/completions", func(c *gin.Context) {
+		handler.HandleChatCompletions(c, s.sender)
+	})
+	r.POST("/v1/messages", func(c *gin.Context) {
+		handler.HandleAnthropicMessages(c, s.sender)
+	})
 	r.GET("/api/status", func(c *gin.Context) {
 		handler.HandleStatus(c, s.status)
 	})
